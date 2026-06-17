@@ -8,21 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #10b981; /* Verde esmeralda */
-            --bg: #0f172a; /* Azul muito escuro */
-            --card-bg: #1e293b; /* Azul ardósia escuro */
+            --primary: #10b981;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --border: #334155;
             --danger: #ef4444;
             --success: #10b981;
-            --neutral: #64748b;
         }
 
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -33,15 +29,9 @@
             padding-bottom: 100px;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .container { max-width: 600px; margin: 0 auto; }
 
-        header {
-            margin-bottom: 25px;
-            text-align: center;
-        }
+        header { margin-bottom: 25px; text-align: center; }
 
         .header-badge {
             background: rgba(16, 185, 129, 0.1);
@@ -51,14 +41,12 @@
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
             display: inline-block;
             margin-bottom: 10px;
         }
 
         h1 { font-size: 1.5rem; margin: 0; }
 
-        /* Seleção de Dias */
         .day-nav {
             display: flex;
             gap: 8px;
@@ -78,7 +66,6 @@
             cursor: pointer;
             font-weight: 600;
             white-space: nowrap;
-            transition: 0.2s;
         }
 
         .day-btn.active {
@@ -88,14 +75,12 @@
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
 
-        /* Card de Exercício */
         .exercise-card {
             background: var(--card-bg);
             border-radius: 20px;
             margin-bottom: 16px;
             border: 1px solid var(--border);
             overflow: hidden;
-            transition: 0.3s;
         }
 
         .exercise-header {
@@ -135,46 +120,13 @@
             align-items: center;
         }
 
-        .toggle-icon { color: var(--text-muted); transition: 0.3s; }
-        .exercise-card.collapsed .toggle-icon { transform: rotate(-90deg); }
         .exercise-card.collapsed .exercise-body { display: none; }
-
         .exercise-body {
             padding: 0 16px 16px 16px;
             border-top: 1px solid var(--border);
         }
 
-        /* Seletor de Metodologia */
-        .methodology-selector {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-
-        .method-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 8px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: 0.2s;
-        }
-
-        .method-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Grid de Semanas */
-        .weeks-table {
-            width: 100%;
-            margin-top: 15px;
-        }
+        .weeks-table { width: 100%; margin-top: 15px; }
         .table-header {
             display: grid;
             grid-template-columns: 40px 1fr 1fr;
@@ -211,62 +163,26 @@
             padding: 8px 0;
             font-size: 0.9rem;
         }
-        .input-control input:disabled {
-            color: var(--text-muted);
-            cursor: not-allowed;
-        }
-        .input-control button {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            padding: 8px 10px;
-            cursor: pointer;
-        }
+        .input-control input:disabled { color: var(--text-muted); cursor: not-allowed; }
+        .input-control button { background: transparent; border: none; color: var(--text-muted); padding: 8px 10px; cursor: pointer; }
+        .input-control button:disabled { opacity: 0.3; cursor: not-allowed; }
 
-        /* Resumo */
-        .stats-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .stat-card {
-            background: rgba(255,255,255,0.03);
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-        }
+        .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
+        .stat-card { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 12px; text-align: center; }
         .stat-label { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 4px; }
         .stat-value { font-weight: 700; color: var(--primary); }
 
-        .chart-container {
-            height: 180px;
-            margin-top: 15px;
-            position: relative;
-        }
+        .chart-container { height: 180px; margin-top: 15px; position: relative; }
 
-        /* Gráfico de Progressão Geral */
         .progression-chart-section {
             background: var(--card-bg);
             border-radius: 20px;
             padding: 20px;
             border: 1px solid var(--border);
             margin-top: 30px;
-            margin-bottom: 30px;
         }
+        .progression-chart-container { height: 300px; position: relative; }
 
-        .progression-chart-section h2 {
-            font-size: 1.1rem;
-            margin: 0 0 15px 0;
-            text-align: center;
-        }
-
-        .progression-chart-container {
-            height: 300px;
-            position: relative;
-        }
-
-        /* Botões Flutuantes */
         .fab {
             position: fixed;
             bottom: 30px;
@@ -285,14 +201,7 @@
             z-index: 100;
         }
 
-        .delete-btn {
-            color: var(--danger);
-            background: rgba(239, 68, 68, 0.1);
-            border: none;
-            padding: 8px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+        .delete-btn { color: var(--danger); background: rgba(239, 68, 68, 0.1); border: none; padding: 8px; border-radius: 8px; cursor: pointer; }
 
         .save-toast {
             position: fixed;
@@ -307,6 +216,17 @@
             font-weight: 600;
             display: none;
             z-index: 1000;
+        }
+
+        .reset-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            margin-top: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -328,13 +248,14 @@
 
     <div id="exerciseList"></div>
 
-    <!-- Gráfico de Progressão Geral -->
     <div class="progression-chart-section">
-        <h2>Progressão Geral - 8 Semanas</h2>
+        <h2 style="font-size: 1.1rem; text-align: center; margin-bottom: 15px;">Progressão Geral (8 Semanas)</h2>
         <div class="progression-chart-container">
             <canvas id="progressionChart"></canvas>
         </div>
     </div>
+
+    <center><button class="reset-btn" onclick="resetData()">Limpar todos os dados</button></center>
 </div>
 
 <div class="fab" onclick="addNewExercise()">
@@ -345,14 +266,14 @@
 
 <script>
     const METHODOLOGIES = {
-        'Cluster 2': { reps: 2, series: 2 },
-        'Cluster 4': { reps: 4, series: 4 },
-        'Cluster 5': { reps: 5, series: 5 },
-        'Progressão 6': { reps: 6, series: 1 },
-        'Padrão Livre': { reps: 'livre', series: 1 },
-        'Pirâmide Quadrada 10': { reps: 10, series: 1 },
-        'Força 4': { reps: 4, series: 1 },
-        'Força 6': { reps: 6, series: 1 }
+        'Padrão Livre': { reps: 'livre' },
+        'Cluster 2': { reps: 2 },
+        'Cluster 4': { reps: 4 },
+        'Cluster 5': { reps: 5 },
+        'Progressão 6': { reps: 6 },
+        'Pirâmide Quadrada 10': { reps: 10 },
+        'Força 4': { reps: 4 },
+        'Força 6': { reps: 6 }
     };
 
     let currentDay = 'Segunda';
@@ -361,6 +282,20 @@
     };
     const charts = {};
     let progressionChart = null;
+
+    function save() {
+        localStorage.setItem('gym_pro_data', JSON.stringify(data));
+        const toast = document.getElementById('saveToast');
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 1500);
+    }
+
+    function resetData() {
+        if(confirm('Isso apagará todos os seus treinos. Continuar?')) {
+            localStorage.removeItem('gym_pro_data');
+            location.reload();
+        }
+    }
 
     function setDay(day) {
         currentDay = day;
@@ -408,15 +343,12 @@
     function updateInfo(id, field, val) {
         const ex = data[currentDay].find(e => e.id === id);
         ex[field] = val;
-        
-        // Se mudou a metodologia, atualizar as repetições
         if (field === 'method') {
-            const methodology = METHODOLOGIES[val];
-            if (methodology && methodology.reps !== 'livre') {
-                ex.weeks.forEach(w => w.reps = methodology.reps);
+            const m = METHODOLOGIES[val];
+            if (m && m.reps !== 'livre') {
+                ex.weeks.forEach(w => w.reps = m.reps);
             }
         }
-        
         save();
         render();
         updateProgressionChart();
@@ -431,13 +363,6 @@
         }
     }
 
-    function save() {
-        localStorage.setItem('gym_pro_data', JSON.stringify(data));
-        const toast = document.getElementById('saveToast');
-        toast.style.display = 'block';
-        setTimeout(() => toast.style.display = 'none', 1500);
-    }
-
     function getProgressionColor(weeks) {
         const last = weeks.filter(w => w.kg > 0);
         if (last.length < 2) return '#64748b';
@@ -448,6 +373,16 @@
         return '#3b82f6';
     }
 
+    function getProgressionStatusText(weeks) {
+        const last = weeks.filter(w => w.kg > 0);
+        if (last.length < 2) return 'Iniciando';
+        const current = last[last.length - 1].kg;
+        const prev = last[last.length - 2].kg;
+        if (current > prev) return 'Subindo';
+        if (current < prev) return 'Descendo';
+        return 'Estável';
+    }
+
     function render() {
         const container = document.getElementById('exerciseList');
         container.innerHTML = '';
@@ -456,8 +391,8 @@
             const card = document.createElement('div');
             card.className = `exercise-card ${ex.collapsed ? 'collapsed' : ''}`;
             
-            const methodology = METHODOLOGIES[ex.method];
-            const isLivre = methodology && methodology.reps === 'livre';
+            const methodology = METHODOLOGIES[ex.method] || METHODOLOGIES['Padrão Livre'];
+            const isLivre = methodology.reps === 'livre';
             
             let tableRows = '';
             ex.weeks.forEach((w, i) => {
@@ -472,8 +407,7 @@
                         <div class="input-control">
                             <input type="number" step="0.5" placeholder="kg" value="${w.kg}" onchange="updateVal('${ex.id}', ${i}, 'kg', this.value)">
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
 
             const maxKg = Math.max(...ex.weeks.map(w => w.kg));
@@ -484,15 +418,13 @@
                     <div class="exercise-title-group">
                         <input class="exercise-name" value="${ex.name}" onclick="event.stopPropagation()" onchange="updateInfo('${ex.id}', 'name', this.value)">
                         <div class="exercise-meta">
-                            <span>8 semanas</span> • 
-                            <select style="background:var(--card-bg); border:1px solid var(--border); color:var(--text-muted); padding:4px 8px; border-radius:6px; font-size:0.8rem; cursor:pointer;" 
-                                value="${ex.method}" onclick="event.stopPropagation()" onchange="updateInfo('${ex.id}', 'method', this.value)">
+                            <select style="background:var(--card-bg); border:1px solid var(--border); color:var(--text-muted); padding:4px; border-radius:6px; font-size:0.8rem;" 
+                                onclick="event.stopPropagation()" onchange="updateInfo('${ex.id}', 'method', this.value)">
                                 ${Object.keys(METHODOLOGIES).map(m => `<option value="${m}" ${ex.method === m ? 'selected' : ''}>${m}</option>`).join('')}
                             </select>
                         </div>
                     </div>
                     <button class="delete-btn" onclick="event.stopPropagation(); deleteEx('${ex.id}')"><i class="fas fa-trash"></i></button>
-                    <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="exercise-body">
                     <div class="stats-row">
@@ -502,47 +434,30 @@
                         </div>
                         <div class="stat-card">
                             <div class="stat-label">STATUS</div>
-                            <div class="stat-value" id="status-${ex.id}" style="color: ${getProgressionColor(ex.weeks)}">
-                                ${getProgressionStatusText(ex.weeks)}
-                            </div>
+                            <div class="stat-value" id="status-${ex.id}" style="color: ${getProgressionColor(ex.weeks)}">${getProgressionStatusText(ex.weeks)}</div>
                         </div>
                     </div>
                     <div class="table-header">
-                        <div>Seman</div>
+                        <div>Sem.</div>
                         <div style="text-align:center">Reps</div>
                         <div style="text-align:center">Carga (kg)</div>
                     </div>
                     <div class="weeks-table">${tableRows}</div>
-                    <div class="chart-container">
-                        <canvas id="chart-${ex.id}"></canvas>
-                    </div>
-                </div>
-            `;
+                    <div class="chart-container"><canvas id="chart-${ex.id}"></canvas></div>
+                </div>`;
             container.appendChild(card);
             initChart(ex);
         });
     }
 
-    function getProgressionStatusText(weeks) {
-        const last = weeks.filter(w => w.kg > 0);
-        if (last.length < 2) return 'Iniciando';
-        const current = last[last.length - 1].kg;
-        const prev = last[last.length - 2].kg;
-        if (current > prev) return 'Subindo';
-        if (current < prev) return 'Descendo';
-        return 'Estável';
-    }
-
     function initChart(ex) {
         const ctx = document.getElementById(`chart-${ex.id}`).getContext('2d');
         const color = getProgressionColor(ex.weeks);
-        
         charts[ex.id] = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
                 datasets: [{
-                    label: 'Carga',
                     data: ex.weeks.map(w => w.kg),
                     borderColor: color,
                     backgroundColor: color + '22',
@@ -556,11 +471,7 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: { 
-                        beginAtZero: true,
-                        grid: { color: '#334155' }, 
-                        ticks: { color: '#94a3b8' } 
-                    },
+                    y: { beginAtZero: true, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
                     x: { grid: { display: false }, ticks: { color: '#94a3b8' } }
                 },
                 plugins: { legend: { display: false } }
@@ -570,14 +481,12 @@
 
     function updateChart(id) {
         const ex = data[currentDay].find(e => e.id === id);
-        const chart = charts[id];
-        if (chart) {
+        if (charts[id]) {
             const color = getProgressionColor(ex.weeks);
-            chart.data.datasets[0].data = ex.weeks.map(w => w.kg);
-            chart.data.datasets[0].borderColor = color;
-            chart.data.datasets[0].backgroundColor = color + '22';
-            chart.data.datasets[0].pointBackgroundColor = color;
-            chart.update();
+            charts[id].data.datasets[0].data = ex.weeks.map(w => w.kg);
+            charts[id].data.datasets[0].borderColor = color;
+            charts[id].data.datasets[0].backgroundColor = color + '22';
+            charts[id].update();
         }
     }
 
@@ -591,70 +500,33 @@
     }
 
     function updateProgressionChart() {
-        // Coletar todos os exercícios de todos os dias
-        const allExercises = [];
-        Object.values(data).forEach(dayExercises => {
-            allExercises.push(...dayExercises);
-        });
-
-        if (allExercises.length === 0) {
-            if (progressionChart) {
-                progressionChart.destroy();
-                progressionChart = null;
-            }
-            return;
-        }
-
-        // Preparar dados para o gráfico
-        const datasets = allExercises.map((ex, idx) => {
-            const colors = [
-                '#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6',
-                '#ec4899', '#14b8a6', '#f97316', '#06b6d4', '#84cc16'
-            ];
-            const color = colors[idx % colors.length];
-
-            return {
-                label: ex.name,
-                data: ex.weeks.map(w => w.kg),
-                borderColor: color,
-                backgroundColor: color + '22',
-                fill: false,
-                tension: 0.4,
-                pointRadius: 3,
-                pointBackgroundColor: color,
-                borderWidth: 2
-            };
-        });
-
+        const all = [];
+        Object.values(data).forEach(dayExs => all.push(...dayExs));
         const ctx = document.getElementById('progressionChart').getContext('2d');
-        
-        if (progressionChart) {
-            progressionChart.destroy();
-        }
+        if (progressionChart) progressionChart.destroy();
+        if (all.length === 0) return;
 
+        const colors = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6'];
         progressionChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
-                datasets: datasets
+                datasets: all.map((ex, i) => ({
+                    label: ex.name,
+                    data: ex.weeks.map(w => w.kg),
+                    borderColor: colors[i % colors.length],
+                    tension: 0.4,
+                    fill: false
+                }))
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: { 
-                        beginAtZero: true,
-                        grid: { color: '#334155' }, 
-                        ticks: { color: '#94a3b8' } 
-                    },
-                    x: { grid: { display: false }, ticks: { color: '#94a3b8' } }
+                    y: { beginAtZero: true, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
+                    x: { ticks: { color: '#94a3b8' } }
                 },
-                plugins: {
-                    legend: {
-                        display: true,
-                        labels: { color: '#94a3b8', font: { size: 11 } }
-                    }
-                }
+                plugins: { legend: { labels: { color: '#94a3b8' } } }
             }
         });
     }
@@ -662,6 +534,5 @@
     render();
     updateProgressionChart();
 </script>
-
 </body>
 </html>
